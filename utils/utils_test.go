@@ -19,4 +19,28 @@ var _ = Describe("Utils", func() {
 			Expect(Sieve(20)).To(Equal(primes))
 		})
 	})
+
+	Describe("SortString", func() {
+		It("returns `0123456789` for `2391085647`", func() {
+			Expect(SortString("2391085647")).To(Equal("0123456789"))
+		})
+	})
+
+	Describe("IsPandigital", func() {
+		It("returns `true` for `239185647`, 9", func() {
+			Expect(IsPandigital(239185647, 9)).To(BeTrue())
+		})
+
+		It("returns `true` for `2143`, 4", func() {
+			Expect(IsPandigital(2143, 4)).To(BeTrue())
+		})
+
+		It("returns `true` for `1111`, 4", func() {
+			Expect(IsPandigital(1111, 4)).To(BeFalse())
+		})
+
+		It("returns `true` for `239185647`, 9", func() {
+			Expect(IsPandigital(239185647, 7)).To(BeFalse())
+		})
+	})
 })

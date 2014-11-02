@@ -1,6 +1,12 @@
 package utils
 
-import "math"
+import (
+	"math"
+	"set"
+	"sort"
+	"strings"
+	"strconv"
+)
 
 func Sieve(n int) []int {
 	isPrimeArray := make([]bool, n)
@@ -25,4 +31,32 @@ func Sieve(n int) []int {
 		}
 	}
 	return primes
+}
+
+func PrimeSet(maxn int) mapset.Set {
+  set := mapset.NewSet()
+  for _, prime := range Sieve(maxn) {
+    set.Add(prime)
+  }
+  return set
+}
+
+// Sorts characters of a string
+func SortString(w string) string {
+  s := strings.Split(w, "")
+  sort.Strings(s)
+  return strings.Join(s, "")
+}
+
+func IsPandigital(num, n int) bool {
+	str := strconv.Itoa(num)
+  if len(str) != n{
+    return false
+  }
+  str = SortString(str)
+  comp := ""
+  for i:= 1; i<=n ; i++ {
+  	comp += strconv.Itoa(i)
+  }
+  return comp == str
 }
