@@ -2,7 +2,6 @@ package utils_test
 
 import (
 	. "euler/utils"
-
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 )

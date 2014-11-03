@@ -5,6 +5,8 @@ import (
 	"set"
 	"sort"
 	"strings"
+  "regexp"
+  "io/ioutil"
 )
 
 func Sieve(n int) []int {
@@ -63,6 +65,11 @@ func IsPandigital(num, n uint) bool {
         return digits == (1 << (n+1)) - 2
     }
     return false
+}
+func ReadStringsFromFile(filename string) []string {
+  content, _ := ioutil.ReadFile(filename)
+  re := regexp.MustCompile("(\"|\\s)+")
+  return strings.Split(re.ReplaceAllString(string(content), ""), ",")
 }
 
 func WordValue(word string) int {

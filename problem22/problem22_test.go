@@ -2,10 +2,8 @@ package problem22_test
 
 import (
 	. "euler/problem22"
-  "io/ioutil"
-  "strings"
   "sort"
-  "regexp"
+  "euler/utils"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 )
@@ -18,9 +16,7 @@ var _ = Describe("Problem22", func() {
   })
 
   It("answers", func(){
-    content, _ := ioutil.ReadFile("p022_names.txt")
-    re := regexp.MustCompile("(\"|\\s)+")
-    names := strings.Split(re.ReplaceAllString(string(content), ""), ",")
+    names := utils.ReadStringsFromFile("p022_names.txt")
     sort.Strings(names)
     Expect(TotalNameScores(names)).To(Equal(871198282))
   })
