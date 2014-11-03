@@ -1,11 +1,11 @@
 package problem22
 
+import (
+  "euler/utils"
+)
+
 func NameScore(name string, row int) int {
-  sum := 0
-  for i:= 0; i< len(name);i++ {
-    sum += int(name[i] - 64)
-  }
-  return sum * row
+  return utils.WordValue(name) * row
 }
 
 func TotalNameScores(names []string) int {

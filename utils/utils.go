@@ -5,7 +5,6 @@ import (
 	"set"
 	"sort"
 	"strings"
-	"strconv"
 )
 
 func Sieve(n int) []int {
@@ -48,15 +47,28 @@ func SortString(w string) string {
   return strings.Join(s, "")
 }
 
-func IsPandigital(num, n int) bool {
-	str := strconv.Itoa(num)
-  if len(str) != n{
+func IsPandigital(num, n uint) bool {
+    min := []uint { 0, 1, 12, 123, 1234, 12345, 123456, 1234567, 12345678, 123456789 }
+    if num >= min[n] {
+        digits := 0
+        for ; num > 0; num /= 10 {
+          k := num % 10
+          // already seen digit k
+          if (digits & ( 1 << k )) >> k == 1 {
+            return false
+          }
+          // Mark kth bit as true
+          digits |= 1 << k
+        }
+        return digits == (1 << (n+1)) - 2
+    }
     return false
+}
+
+func WordValue(word string) int {
+  sum := 0
+  for i:= 0; i< len(word);i++ {
+    sum += int(word[i] - 64)
   }
-  str = SortString(str)
-  comp := ""
-  for i:= 1; i<=n ; i++ {
-  	comp += strconv.Itoa(i)
-  }
-  return comp == str
+  return sum
 }

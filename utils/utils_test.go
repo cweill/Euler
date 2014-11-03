@@ -35,12 +35,22 @@ var _ = Describe("Utils", func() {
 			Expect(IsPandigital(2143, 4)).To(BeTrue())
 		})
 
-		It("returns `true` for `1111`, 4", func() {
+		It("returns `false` for `1111`, 4", func() {
 			Expect(IsPandigital(1111, 4)).To(BeFalse())
 		})
 
-		It("returns `true` for `239185647`, 9", func() {
+		It("returns `false` for `239185647`, 9", func() {
 			Expect(IsPandigital(239185647, 7)).To(BeFalse())
+		})
+
+		It("returns `false` for `239185647`, 9", func() {
+			Expect(IsPandigital(887645321, 9)).To(BeFalse())
+		})
+	})
+
+	Describe("WordValue", func() {
+		It("is 55 for SKY", func() {
+			Expect(WordValue("SKY")).To(Equal(55))
 		})
 	})
 })
