@@ -52,4 +52,14 @@ var _ = Describe("Utils", func() {
 			Expect(WordValue("SKY")).To(Equal(55))
 		})
 	})
+
+	Describe("HasSameDigits", func() {
+		It("is true for 125874 and 251748", func() {
+			Expect(HasSameDigits(125874, 251748)).To(BeTrue())
+		})
+
+		It("is false for 125874 and 2511748", func() {
+			Expect(HasSameDigits(125874, 2511748)).To(BeFalse())
+		})
+	})
 })

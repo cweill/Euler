@@ -7,6 +7,7 @@ import (
 	"strings"
   "regexp"
   "io/ioutil"
+  "strconv"
 )
 
 func Sieve(n int) []int {
@@ -78,4 +79,11 @@ func WordValue(word string) int {
     sum += int(word[i] - 64)
   }
   return sum
+}
+
+func HasSameDigits(this, that int) bool {
+  sthis, sthat := strconv.Itoa(this), strconv.Itoa(that)
+  sthis = SortString(sthis)
+  sthat = SortString(sthat)
+  return sthis == sthat
 }
