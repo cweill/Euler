@@ -19,6 +19,16 @@ var _ = Describe("Utils", func() {
 		})
 	})
 
+	Describe("IsPrime", func() {
+		It("returns true for 3367900313", func() {
+			Expect(IsPrime(3367900313)).To(BeTrue())
+		})
+
+		It("returns false for 1000000", func() {
+			Expect(IsPrime(1000000)).To(BeFalse())
+		})
+	})
+
 	Describe("SortString", func() {
 		It("returns `0123456789` for `2391085647`", func() {
 			Expect(SortString("2391085647")).To(Equal("0123456789"))

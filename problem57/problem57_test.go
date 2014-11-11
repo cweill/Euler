@@ -24,5 +24,4 @@ var _ = Describe("Problem57", func() {
 	It("answers", func() {
 		Expect(SquareRootConvergents()).To(Equal(153))
 	})
-
 })

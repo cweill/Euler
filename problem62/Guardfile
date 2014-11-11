@@ -1,0 +1,3 @@
+guard 'go', :server => 'problem62.go', test: true do
+  watch(%r{\.go$})
+end
