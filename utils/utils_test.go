@@ -24,22 +24,42 @@ var _ = Describe("Utils", func() {
 			Expect(IsPrime(3367900313)).To(BeTrue())
 		})
 
-		It("is false for 1000000", func() {
-			Expect(IsPrime(1000000)).To(BeFalse())
+		It("is false for 100000", func() {
+			Expect(IsPrime(100000)).To(BeFalse())
 		})
 
-		// It("is false for 7033313127171317417", func() {
-		// 	Expect(IsPrime(7033313127171317417)).To(BeTrue())
-		// })
+		It("is false for 1231232", func() {
+			Expect(IsPrime(1231232)).To(BeFalse())
+		})
+
+		It("is true for 7033313127171317417", func() {
+			Expect(IsPrime(7033313127171317417)).To(BeTrue())
+		})
 	})
 
-	Describe("GCD", func() {
-		It("is 6 for 36, 42", func() {
-			Expect(GCD(36, 42)).To(Equal(6))
+	// Describe("GCD", func() {
+	// 	It("is 6 for 36, 42", func() {
+	// 		Expect(GCD(36, 42)).To(Equal(float64(6)))
+	// 	})
+
+	// 	It("is 1 for 17, 73", func() {
+	// 		Expect(GCD(17, 73)).To(Equal(float64(1)))
+	// 	})
+	// })
+
+	Describe("IsPowerOfInteger", func() {
+		It("is true for 81", func() {
+			Expect(IsPowerOfInteger(81)).To(BeTrue())
 		})
 
-		It("is 1 for 17, 73", func() {
-			Expect(GCD(17, 73)).To(Equal(1))
+		It("is false for 73", func() {
+			Expect(IsPowerOfInteger(73)).To(BeFalse())
+		})
+	})
+
+	Describe("SmallestMultiplicativeOrder", func() {
+		It("is 29 for 31", func() {
+			Expect(SmallestMultiplicativeOrder(31)).To(Equal(int64(29)))
 		})
 	})
 
