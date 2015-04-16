@@ -26,6 +26,13 @@ func IsPrime(n int) bool {
 	return true
 }
 
+func GCD(a, b int) int {
+	if b == 0 {
+		return a
+	}
+	return GCD(b, a%b)
+}
+
 func Sieve(n int) []int {
 	isPrimeArray := make([]bool, n)
 	for i := 0; i < len(isPrimeArray); i++ {
