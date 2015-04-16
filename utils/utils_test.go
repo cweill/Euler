@@ -2,6 +2,7 @@ package utils_test
 
 import (
 	. "euler/utils"
+	"fmt"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 )
@@ -20,6 +21,12 @@ var _ = Describe("Utils", func() {
 	})
 
 	Describe("IsPrime", func() {
+		for _, val := range Sieve(1000) {
+			It(fmt.Sprintf("It is true for %d", val), func() {
+				Expect(IsPrime(int64(val))).To(BeTrue())
+			})
+		}
+
 		It("is true for 3367900313", func() {
 			Expect(IsPrime(3367900313)).To(BeTrue())
 		})
